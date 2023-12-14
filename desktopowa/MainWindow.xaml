@@ -5,28 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:desktopowa"
         mc:Ignorable="d"
-        Title="Dodaj pracownika" Height="450" Width="800" >
+        Title="Dodaj pracownika" Height="350" Width="550"
+        Background="LightSteelBlue">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="76*"/>
-            <ColumnDefinition Width="427*"/>
-            <ColumnDefinition Width="297*"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="250"/>
+
         </Grid.ColumnDefinitions>
-        <GroupBox FontSize="20px" Header="Dane Pracownika" Width="350" Height="400" Margin="10,17,143,17" Grid.ColumnSpan="2">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="218"></RowDefinition>
+            <RowDefinition Height="82"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <GroupBox  BorderBrush="White" Header="Dane Pracownika" Margin="10,25,246,17" Grid.ColumnSpan="2">
             <StackPanel >
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label FontSize="30px" Content="Imię" HorizontalAlignment="Left" Margin="15,0,15,0" VerticalAlignment="Top"/>
-                    <TextBox FontSize="30px" TextWrapping="Wrap" Text="TextBox" Width="120" HorizontalAlignment="Right" TextChanged="TextBox_TextChanged" Height="50"/>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+                    <Label  Content="Imię" HorizontalAlignment="Left" Margin="15,0,15,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="imie"  TextWrapping="Wrap" Text="TextBox" Width="120" HorizontalAlignment="Right" TextChanged="TextBox_TextChanged" Height="20"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label FontSize="30px" Content="Nazwisko" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
-                    <TextBox FontSize="30px" TextWrapping="Wrap" Text="TextBox" Width="120" VerticalAlignment="Top" HorizontalAlignment="Right" Height="50"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+                    <Label  Content="Nazwisko" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox  x:Name="nazwisko" TextWrapping="Wrap" Text="TextBox" Width="120" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
 
-                <Label FontSize="30px" Content="Stanowisko" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <Label  Content="Stanowisko" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="stanowisko" Width="120">
+                        <ComboBoxItem>Kierownik</ComboBoxItem>
+                        <ComboBoxItem>Starszy Programista</ComboBoxItem>
+                        <ComboBoxItem>Młodszy Programista</ComboBoxItem>
+                        <ComboBoxItem>Tester</ComboBoxItem>
+                    </ComboBox>
 
+                </StackPanel>
             </StackPanel>
         </GroupBox>
+        <GroupBox BorderBrush="White" Grid.Column="1" Header="Generowanie hasła" Margin="10,25,10,17">
+            <StackPanel Margin="0,0,0,-2">
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                    <Label Content="Ile znaków" />
+                    <TextBox x:Name="ile" Width="120" Height="20"></TextBox>
+
+                </StackPanel>
+                <CheckBox x:Name="wielkie" Content="Małe i wielkie litery" Margin="20,0,0,10"/>
+                <CheckBox x:Name="cyfra" Content="Cyfry" Margin="20,0,0,10"/>
+                <CheckBox x:Name="znak" Content="Zanaki specjalne" Margin="20,0,0,10"/>
+                <Button Foreground="White" Background="SteelBlue" Width="100" Content="Generuj hasło" Click="Button_Click" ></Button>
+                <TextBlock x:Name="wynik"></TextBlock>
+               
+
+
+            </StackPanel>
+
+
+        </GroupBox>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Button Background="SteelBlue" Height="20" Content="Zatwierdź" Margin="130,21,130,41" Foreground="White" Click="Button_Click_1"/>
+        </Grid>
+
+
 
     </Grid>
+
 </Window>
